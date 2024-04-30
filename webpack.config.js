@@ -43,8 +43,8 @@ module.exports = {
           loader: 'babel-loader',
           options: {
             presets: [
-              ['@babel/preset-env', { targets: 'defaults' }],
-              ['@babel/preset-react'],
+              ['@babel/preset-env', { targets: { node: 'current' } }],
+              ['@babel/preset-react', { runtime: 'automatic' }],
             ],
             plugins: [
               '@babel/plugin-transform-react-jsx',
@@ -64,8 +64,23 @@ module.exports = {
       },
       {
         test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,
-        type: 'asset',
+        type: 'asset/resource',
       },
+    ],
+  },
+
+  //not sure if needed for jest (in tutorial)
+  resolve: {
+    alias: {
+      config$: './configs/app-config.js',
+      react: './vendor/react-master',
+    },
+    extensions: ['.js', '.jsx'],
+    modules: [
+      'node_modules',
+      'bower_components',
+      'shared',
+      '/shared/vendor/modules',
     ],
   },
 };
