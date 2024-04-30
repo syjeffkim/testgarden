@@ -8,7 +8,8 @@
     "build": "NODE_ENV=production webpack",
     "build-dev": "webpack --watch",
     "start": "nodemon server/server.js",
-    "dev": "concurrently \"cross-env NODE_ENV=development webpack-dev-server --hot --color\" \"nodemon ./server/server.js\""
+    "dev": "concurrently \"cross-env NODE_ENV=development webpack-dev-server --hot --color\" \"nodemon ./server/server.js\"",
+    "lint": "eslint ./tests/test.js"
   },
   "repository": {
     "type": "git",
@@ -53,6 +54,7 @@
     "postcss": "^8.4.38",
     "postcss-import": "^16.1.0",
     "postcss-loader": "^8.1.1",
+    "prettier": "^3.2.5",
     "react-test-renderer": "^18.3.1",
     "style-loader": "^4.0.0",
     "superagent": "^9.0.2",
